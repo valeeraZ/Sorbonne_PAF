@@ -1,0 +1,58 @@
+name:                Lemmings
+version:             0.1.0.0
+github:              "valeeraZ/Lemmings"
+license:             BSD3
+author:              "Wenzhuo Zhao"
+maintainer:          "wenzhuo.zhao@etu.sorbonne-universite.fr"
+copyright:           "2021 Zhao"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/Lemmings#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- containers
+- linear
+- sdl2
+- sdl2-ttf
+- text
+- random
+- mtl
+- ansi-terminal
+- hspec
+- QuickCheck
+
+library:
+  source-dirs: src
+
+executables:
+  Lemmings-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Lemmings
+
+tests:
+  Lemmings-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Lemmings
